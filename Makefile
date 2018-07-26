@@ -19,11 +19,13 @@ all: class jar cleanclass
 class:
 	@echo -n "Compile class... "
 	@javac src/*.java
+	@mkdir -p bin
 	@mv src/*.class bin
 	@echo "done"
 
 jar:
 	@echo -n "Create jar... "
+	@mkdir -p bin
 	@cd bin; jar cfe JustStopwatch.jar JustStopwatch *.class
 	@cd bin; md5sum JustStopwatch.jar > JustStopwatch.jar.md5
 	@echo "done"
